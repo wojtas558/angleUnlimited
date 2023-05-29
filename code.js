@@ -62,7 +62,7 @@ function drawAll()
 
     drawCenter(cntx, "gray", 2);
     drawAngle(canvas, cntx, randomAngle, "darkgray", 2.5)
-    drawArms(canvas, cntx, randomAngle, "black", 3);
+    drawArms(canvas, cntx, randomAngle, "black", 4);
     console.log(randomAngle);
 }
 
@@ -83,34 +83,39 @@ function checkGuess()
         guessAngle.innerHTML = guess;
 
         if(guess < randomAngle){
-            direction.innerHTML = ">";
+            direction.innerHTML = "<img class='images'src=images/up.png>";
         }
         else if(guess > randomAngle){
-            direction.innerHTML = "<";
+            direction.innerHTML = "<img class='images'src=images/down.png>";
         }
         else{
-            direction.innerHTML = "*";
+            direction.innerHTML = "<img class='images'src=images/hit.png>";
         }
 
         if(Math.abs(guess - randomAngle) == 0){
             distance.innerHTML = "HIT";
         }  
         else if(Math.abs(guess - randomAngle) <= 5){
-            distance.innerHTML = "...";
+            distance.innerHTML = "VERY CLOSE";
         }              
         else if(Math.abs(guess - randomAngle) <= 15){
-            distance.innerHTML = "..";
+            distance.innerHTML = "Close";
         }
         else if(Math.abs(guess - randomAngle) <= 30){
-            distance.innerHTML = ".";
+            distance.innerHTML = "Getting close";
         }
         
         if(guesses == 4 || guess == randomAngle)
         {
             document.getElementById("guess").disabled = true;
             document.getElementById("guessBtn").disabled = true;
+            if(guess == randomAngle)
+                alert("YOU WON");
+            else
+                alert("YOU LOST\nAnswer was " + randomAngle)
+            document.getElementById("playAgain").hidden = false;
         }
-        
+
     }    
 }
 
@@ -120,6 +125,9 @@ function playAgain()
     document.getElementById("results").innerHTML = "";
     document.getElementById("guess").disabled = false;
     document.getElementById("guessBtn").disabled = false;
+    document.getElementById("playAgain").hidden = true;
+    guesses = 0;
+
 }
 
 var guesses = 0;

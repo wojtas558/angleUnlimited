@@ -1,6 +1,6 @@
 :root{
-    --background: rgb(44, 41, 41);
-    --backgroundSecond: rgb(104, 113, 121);
+    --background: rgb(127, 146, 161);
+    --backgroundSecond: rgb(44, 41, 41);
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -65,8 +65,9 @@ input{
     text-align: right;
 }
 #drawing{
-    background-color: blanchedalmond;
-    border-radius: 25px;
+    background-color: rgb(247, 225, 194);
+    border-radius: 50%;
+    border: 1vh solid black;
 }
 #center{
     fill: var(--background);
@@ -80,12 +81,25 @@ input{
 }
 h5{
     font-family: "monocraft";
-    margin: 6px;
+    margin: 0.9vh;
     padding: 0px; 
-
+    color: rgb(247, 225, 194);
 }
 table{
     font-family: "monocraft";
-    color: whitesmoke;
+    color: rgb(247, 225, 194);
     font-size: 1.5rem;
+    border-collapse: separate;
+    border-spacing: 1.25vh 0px;
+}
+.images{
+    width: 4.3vh;
+    height: 4.3vh;
+}
+#playAgain{
+    border-radius: 4px;
+    width: auto;
+    height: 3vh;
+    font-family: "monocraft";
+    font-size: 1rem;
 }
