@@ -20,11 +20,6 @@ function drawCenter(canvas, cntx)
     console.log("cenetr");
 }
 
-function calcArm(canvas, angle)
-{
-
-}
-
 function drawArms(canvas, cntx, angle)
 {
     var centerX = canvas.width / 2;
@@ -34,7 +29,11 @@ function drawArms(canvas, cntx, angle)
     cntx.moveTo(centerX - r, centerY);
     cntx.lineTo(centerX - canvas.height * 0.35, centerY);
     cntx.stroke();
-    console.log("arms")
+    cntx.moveTo(centerX - (r * Math.cos(toRadians(angle))), centerY - (r * Math.sin(toRadians(angle))));
+    cntx.lineTo(centerX - (canvas.height * 0.35 * Math.cos(toRadians(angle))), centerY - (canvas.height * 0.35 * Math.sin(toRadians(angle))));
+    cntx.stroke();
+    console.log(r * Math.cos(toRadians(angle)));
+    console.log(toRadians(angle))
 }
 
 function drawAngle(angle)
