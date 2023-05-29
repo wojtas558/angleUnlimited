@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
     <title>Angle unlimited</title>
 </head>
 <body onload="drawAll()">
     <div class="menu">        
-        <button onclick="drawAll()">Redraw</button>
     </div>
     <div class="body">
         <div class="title">
@@ -22,11 +22,14 @@
             </circle>
         </div>
         <div class="guessing">
-            <form action="">
+            <form action="" id="guessForm">
                 <input type="number" name="guess" id="guess" placeholder="&deg;">
-                <button></button>
+                <input type="button" onclick="checkGuess()" value="Guess" id="guessBtn"></input>
             </form>
-            </div>
+            <table id="results">
+            </table>
+            </div>            
+            <button onclick="playAgain()">Play again</button>
         </div>
         <div class="foot">
             <h5>Wojciech Michaluszko</h5>

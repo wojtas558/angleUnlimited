@@ -65,3 +65,61 @@ function drawAll()
     drawArms(canvas, cntx, randomAngle, "black", 3);
     console.log(randomAngle);
 }
+
+function checkGuess()
+{
+    guess = parseInt(document.getElementById("guess").value);
+    if(Number.isInteger(guess))
+    {
+        
+        results = document.getElementById("results");
+        
+        var resultsRow = results.insertRow(guesses)
+        guesses += 1;
+        var guessAngle = resultsRow.insertCell(0);
+        var direction = resultsRow.insertCell(1);     
+        var distance = resultsRow.insertCell(2);     
+        
+        guessAngle.innerHTML = guess;
+
+        if(guess < randomAngle){
+            direction.innerHTML = ">";
+        }
+        else if(guess > randomAngle){
+            direction.innerHTML = "<";
+        }
+        else{
+            direction.innerHTML = "*";
+        }
+
+        if(Math.abs(guess - randomAngle) == 0){
+            distance.innerHTML = "HIT";
+        }  
+        else if(Math.abs(guess - randomAngle) <= 5){
+            distance.innerHTML = "...";
+        }              
+        else if(Math.abs(guess - randomAngle) <= 15){
+            distance.innerHTML = "..";
+        }
+        else if(Math.abs(guess - randomAngle) <= 30){
+            distance.innerHTML = ".";
+        }
+        
+        if(guesses == 4 || guess == randomAngle)
+        {
+            document.getElementById("guess").disabled = true;
+            document.getElementById("guessBtn").disabled = true;
+        }
+        
+    }    
+}
+
+function playAgain()
+{
+    drawAll();
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("guess").disabled = false;
+    document.getElementById("guessBtn").disabled = false;
+}
+
+var guesses = 0;

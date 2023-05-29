@@ -12,7 +12,7 @@ body{
     min-height: 100vh;
     padding: 0px;
     margin: 0px;
-    background-color: aqua;
+    background-color: slategray;
 }
 .menu{
     width: 100%;
@@ -35,14 +35,27 @@ body{
     align-items: center;  
     flex-direction: column;
 }
+#guessForm{
+    margin: 1vh;
+}
+input{
+    margin: 1.2vh;
+}
 #guess{
     border-radius: 1vh;
     text-align: center;
     vertical-align: middle;
     height: 3vh;
     width: 9vh;
-    font-size: 1.5rem;
-    font-family: "monocraft";
+    font-size: 1.3rem;
+    font-family: "monocraft";    
+}
+#guessBtn{
+    border-radius: 1vh;
+    height: 4vh;
+    width: 10vh;
+    font-size: 1rem;
+    font-family: "monocraft";    
 }
 .foot{
     width: 100%;
@@ -70,4 +83,9 @@ h5{
     margin: 6px;
     padding: 0px; 
 
+}
+table{
+    font-family: "monocraft";
+    color: whitesmoke;
+    font-size: 1.5rem;
 }
