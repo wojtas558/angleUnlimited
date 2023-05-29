@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Angle unlimited</title>
 </head>
-<body>
+<body onload="drawAll()">
     <div class="menu">        
         <button onclick="drawAll()">Redraw</button>
     </div>
@@ -22,13 +22,14 @@
             </circle>
         </div>
         <div class="guessing">
-            <svg>                
-                <circle id="center" cx="50%" cy="50%" r="5" stroke="gray" stroke-width="1" fill="none">
-                </svg>
+            <form action="">
+                <input type="number" name="guess" id="guess" placeholder="&deg;">
+                <button></button>
+            </form>
             </div>
         </div>
         <div class="foot">
-            
+            <h5>Wojciech Michaluszko</h5>
         </div>
     </body>
 <script src="code.js"></script>

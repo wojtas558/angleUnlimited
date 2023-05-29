@@ -2,10 +2,17 @@
     --background: rgb(44, 41, 41);
     --backgroundSecond: rgb(104, 113, 121);
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 body{
     min-height: 100vh;
     padding: 0px;
     margin: 0px;
+    background-color: aqua;
 }
 .menu{
     width: 100%;
@@ -22,11 +29,27 @@ body{
     flex-direction: column;
     background-color: var(--background);
 }
+.guessing{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    flex-direction: column;
+}
+#guess{
+    border-radius: 1vh;
+    text-align: center;
+    vertical-align: middle;
+    height: 3vh;
+    width: 9vh;
+    font-size: 1.5rem;
+    font-family: "monocraft";
+}
 .foot{
     width: 100%;
     height: 3vh;
     float: left;
     background-color: var(--backgroundSecond);
+    text-align: right;
 }
 #drawing{
     background-color: blanchedalmond;
@@ -41,4 +64,10 @@ body{
     top: 10vh;
     font-family: "monocraft";
     color: whitesmoke;
+}
+h5{
+    font-family: "monocraft";
+    margin: 6px;
+    padding: 0px; 
+
 }

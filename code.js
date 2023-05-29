@@ -8,50 +8,60 @@ function toRadians(angle)
     return ((angle * Math.PI) / 180);
 }
 
-function drawCenter(canvas, cntx)
+function drawCenter(cntx, color="black", width=3)
 {
-    var centerX = canvas.width / 2;
-    var centerY = canvas.height / 2;
-    cntx.lineWidth = 1.5;
+    cntx.strokeStyle = color;
+    cntx.lineWidth = width;
+    r = 3;
+
+
     cntx.beginPath();
-    r = 6;
     cntx.arc(centerX, centerY, r, 0, 2 * Math.PI);
     cntx.stroke();
-    console.log("cenetr");
 }
 
-function drawArms(canvas, cntx, angle)
+function drawArms(canvas, cntx, angle, color="black", width=3)
 {
-    var centerX = canvas.width / 2;
-    var centerY = canvas.height / 2;
-    cntx.lineWidth = 3;
+    cntx.strokeStyle = color;
+    cntx.lineWidth = width;
+    
     cntx.beginPath();
     cntx.moveTo(centerX - r, centerY);
     cntx.lineTo(centerX - canvas.height * 0.35, centerY);
     cntx.stroke();
+    
+    cntx.beginPath();
     cntx.moveTo(centerX - (r * Math.cos(toRadians(angle))), centerY - (r * Math.sin(toRadians(angle))));
     cntx.lineTo(centerX - (canvas.height * 0.35 * Math.cos(toRadians(angle))), centerY - (canvas.height * 0.35 * Math.sin(toRadians(angle))));
     cntx.stroke();
-    console.log(r * Math.cos(toRadians(angle)));
-    console.log(toRadians(angle))
 }
 
-function drawAngle(angle)
+function drawAngle(canvas, cntx, angle, color="black", width=2)
 {
+    cntx.strokeStyle = color;
+    cntx.lineWidth = width;
+    let angleR = 20
 
+    cntx.beginPath();
+    cntx.arc(centerX, centerY, angleR, Math.PI, toRadians(angle) + Math.PI);
+    cntx.stroke();
+    
 }
 
 function drawAll()
 {
     var canvas = document.getElementById("drawing");    
+    var cntx = canvas.getContext("2d");
+
     canvas.width = 0.35 * document.documentElement.clientHeight;
     canvas.height = 0.35 * document.documentElement.clientHeight;
-    var cntx = canvas.getContext("2d");
-    
-    var randomAngle = generateAngle();
-    drawCenter(canvas, cntx);
-    drawArms(canvas, cntx, randomAngle);
-}
+    centerX = canvas.width / 2;
+    centerY = canvas.height / 2;
 
-console.log(generateAngle())
-drawAll();
+    /*var*/ randomAngle = generateAngle();
+
+    drawCenter(cntx, "gray", 2);
+    drawAngle(canvas, cntx, randomAngle, "darkgray", 2.5)
+    drawArms(canvas, cntx, randomAngle, "black", 3);
+    console.log(randomAngle);
+}
