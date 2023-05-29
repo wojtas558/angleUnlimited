@@ -1,3 +1,7 @@
+:root{
+    --background: rgb(44, 41, 41);
+    --backgroundSecond: rgb(104, 113, 121);
+}
 body{
     min-height: 100vh;
     padding: 0px;
@@ -6,19 +10,35 @@ body{
 .menu{
     width: 100%;
     height: 10vh;
+    background-color: var(--backgroundSecond);
 }
 .body{
     width: 100%;
-    height: 80vh;
+    height: 87vh;
     float: left;
     display: flex;
     justify-content: center;
     align-items: center;  
+    flex-direction: column;
+    background-color: var(--background);
 }
 .foot{
     width: 100%;
-    height: 10vh;
+    height: 3vh;
+    float: left;
+    background-color: var(--backgroundSecond);
 }
-.drawing{
+#drawing{
     background-color: blanchedalmond;
+    border-radius: 25px;
+}
+#center{
+    fill: var(--background);
+    stroke: var(--backgroundSecond);
+}
+.title{
+    position: absolute;
+    top: 10vh;
+    font-family: "monocraft";
+    color: whitesmoke;
 }
