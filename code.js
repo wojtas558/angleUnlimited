@@ -80,7 +80,7 @@ function checkGuess()
         var direction = resultsRow.insertCell(1);     
         var distance = resultsRow.insertCell(2);     
         
-        guessAngle.innerHTML = guess;
+        guessAngle.innerHTML = guess + "&deg;";
 
         if(guess < randomAngle){
             direction.innerHTML = "<img class='images'src=images/up.png>";
@@ -109,9 +109,7 @@ function checkGuess()
         {
             document.getElementById("guess").disabled = true;
             document.getElementById("guessBtn").disabled = true;
-            if(guess == randomAngle)
-                alert("YOU WON");
-            else
+            if(guess != randomAngle)
                 alert("YOU LOST\nAnswer was " + randomAngle)
             document.getElementById("playAgain").hidden = false;
         }

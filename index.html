@@ -9,7 +9,19 @@
     <title>Angle unlimited</title>
 </head>
 <body onload="drawAll()">
-    <div class="menu">        
+    <div class="menu">  
+        <div class="dropMenu">
+            <img class="images" src="images/colorPicker.png" alt="color picker">
+            <div class="colorPickers">
+                <table>
+                    <tr>
+                        <label for="bg">Background: </label>
+                        <input type="color" name="bg" id="bg">
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
     </div>
     <div class="body">
         <div class="title">
@@ -24,12 +36,12 @@
         <div class="guessing">
             <form id="guessForm">
                 <input type="number" name="guess" id="guess" placeholder="&deg;">
-                <input type="button" onclick="checkGuess()" value="Guess" id="guessBtn"></input>
+                <input type="button" onclick="checkGuess()" value="Guess" class="button" id="guessBtn">
             </form>
             <table id="results">
             </table>
             </div>            
-            <button id="playAgain" hidden="true" onclick="playAgain()">Play again</button>
+            <button id="playAgain" class="button" hidden="true" onclick="playAgain()">Play again</button>
         </div>
         <div class="foot">
             <h5>Wojciech Michaluszko</h5>
