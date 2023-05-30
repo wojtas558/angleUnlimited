@@ -1,6 +1,7 @@
 :root{
     --background:#7f92a1;
     --backgroundSecond:#3f3f3f;
+    --itemBackground:#eed3ad;;
 }
 
 
@@ -68,6 +69,7 @@ input{
     font-size: 1.2rem;
     font-family: "monocraft";        
     border: 3px solid black;
+    background-color: var(--itemBackground);
 }
 .foot{
     width: 100%;
@@ -79,7 +81,7 @@ input{
     align-items:center;  
 }
 #drawing{
-    background-color: rgb(247, 225, 194);
+    background-color: var(--itemBackground);
     border-radius: 50%;
     border: 0.75vh solid black;
 }
@@ -90,17 +92,17 @@ input{
 .title{
     margin-top: 0vh;
     font-family: "monocraft";
-    color: whitesmoke;
+    color: var(--itemBackground);
 }
 h5{
     font-family: "monocraft";
     margin-right: 1vh;
     padding: 0px; 
-    color: rgb(247, 225, 194);
+    color: var(--itemBackground);
 }
 #results{
     font-family: "monocraft";
-    color: rgb(255, 223, 179);
+    color: var(--itemBackground);
     font-size: 1.5rem;
     border-collapse: separate;
     border-spacing: 1.25vh 0px;
@@ -115,15 +117,14 @@ h5{
     height: 4vh;
     font-family: "monocraft";
     font-size: 1rem;
-    background-color: rgb(243, 220, 187);
+    background-color: var(--itemBackground);
     border: 3px solid black;
 }
 .button:hover{
-    background-color: rgb(223, 189, 142);
+    filter: brightness(80%);
 }
 #playAgain:hover{
-    border-radius: 1.5vh;    
-    font-size: 1.2rem;
+    border-radius: 2vh;    
 }
 
 .dropMenu{    
@@ -138,14 +139,16 @@ h5{
     justify-content: right;
     align-items:center;  
     z-index: 1;
-    min-width: 23vh;
-    background-color: rgb(241, 209, 171);
-    border: 4px solid rgb(151, 132, 108);
-    border-radius: 1vh;
+    min-width: 21vh;
+    background-color: var(--backgroundSecond);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 3vh;
+    border-top-left-radius: 0%;
     padding: 0vh;
 }
 .dropMenu:hover .colorPickers{
     display: flex;
+    flex-wrap: wrap;
 }
 .records{
     border-collapse: separate;
@@ -162,10 +165,16 @@ h5{
     color: grey;
 }
 #bg{
-    border-radius: 2vh;
     background-color: var(--background);
-    border: none;
 }
-#bgLabel{
+#elements{    
+    background-color: var(--itemBackground);
+}
+.colorPickers > table> tbody > tr > td > label{
     margin-left: 1vh;
+}
+
+.colorPickers > table > tbody > tr > td > input{
+    border: 2px solid black;
+    border-radius: 1.3vh;
 }

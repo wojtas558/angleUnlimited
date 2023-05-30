@@ -8,31 +8,30 @@ function toRadians(angle)
     return ((angle * Math.PI) / 180);
 }
 
-function drawCenter(cntx, color="black", width=3)
+function drawCenter(cntx, color="black", width=3, centerR)
 {
     cntx.strokeStyle = color;
     cntx.lineWidth = width;
-    r = 3;
 
 
     cntx.beginPath();
-    cntx.arc(centerX, centerY, r, 0, 2 * Math.PI);
+    cntx.arc(centerX, centerY, centerR, 0, 2 * Math.PI);
     cntx.stroke();
 }
 
-function drawArms(canvas, cntx, angle, color="black", width=3)
+function drawArms(canvas, cntx, angle, color="black", width=3, centerR)
 {
     cntx.strokeStyle = color;
     cntx.lineWidth = width;
     
     cntx.beginPath();
-    cntx.moveTo(centerX - r, centerY);
-    cntx.lineTo(centerX - canvas.height * 0.35, centerY);
+    cntx.moveTo(centerX - centerR, centerY);
+    cntx.lineTo(centerX - canvas.height * 0.4, centerY);
     cntx.stroke();
     
     cntx.beginPath();
-    cntx.moveTo(centerX - (r * Math.cos(toRadians(angle))), centerY - (r * Math.sin(toRadians(angle))));
-    cntx.lineTo(centerX - (canvas.height * 0.35 * Math.cos(toRadians(angle))), centerY - (canvas.height * 0.35 * Math.sin(toRadians(angle))));
+    cntx.moveTo(centerX - (centerR * Math.cos(toRadians(angle))), centerY - (centerR * Math.sin(toRadians(angle))));
+    cntx.lineTo(centerX - (canvas.height * 0.4 * Math.cos(toRadians(angle))), centerY - (canvas.height * 0.4 * Math.sin(toRadians(angle))));
     cntx.stroke();
 }
 
@@ -40,7 +39,7 @@ function drawAngle(canvas, cntx, angle, color="black", width=2)
 {
     cntx.strokeStyle = color;
     cntx.lineWidth = width;
-    let angleR = 20
+    let angleR = 35
 
     cntx.beginPath();
     cntx.arc(centerX, centerY, angleR, Math.PI, toRadians(angle) + Math.PI);
@@ -60,20 +59,29 @@ function drawAll()
 
     /*var*/ randomAngle = generateAngle();
 
-    drawCenter(cntx, "gray", 2);
-    drawAngle(canvas, cntx, randomAngle, "darkgray", 2.5)
-    drawArms(canvas, cntx, randomAngle, "black", 4);
+    drawAngle(canvas, cntx, randomAngle, "#e99700", 3.5)
+    drawArms(canvas, cntx, randomAngle, "black", 3.5, 3);
+    drawCenter(cntx, "#e99700", 3, 3);
 }
 
 function load()
 {
     drawAll();
-    colorPicker = document.getElementById("bg")
-    colorPicker.value = getComputedStyle(document.documentElement).getPropertyValue('--background'); 
-    colorPicker.addEventListener("input", changeBackground, false);
-
+    setColorInput("bg", '--background', changeBackground);
+    setColorInput("elements", '--itemBackground', changeItems);
 }
 
+function setColorInput(colorPickerID, colorVariable, changeFunction)
+{
+    colorPicker = document.getElementById(colorPickerID)
+    colorPicker.value = getComputedStyle(document.documentElement).getPropertyValue(colorVariable); 
+    colorPicker.addEventListener("input", changeFunction, false);
+}
+
+function changeItems(event) 
+{
+    document.documentElement.style.setProperty('--itemBackground', event.target.value);    
+}
 function changeBackground(event)
 {
     document.documentElement.style.setProperty('--background', event.target.value);
@@ -113,9 +121,7 @@ function checkGuess()
         else if(Math.abs(guess - randomAngle) <= 15){
             distance.innerHTML = "Close";
         }
-        else if(Math.abs(guess - randomAngle) <= 30){
-            distance.innerHTML = "Getting close";
-        }
+        
         
         if(guesses == 5 || guess == randomAngle)
         {
