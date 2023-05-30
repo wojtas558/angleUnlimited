@@ -63,9 +63,21 @@ function drawAll()
     drawCenter(cntx, "gray", 2);
     drawAngle(canvas, cntx, randomAngle, "darkgray", 2.5)
     drawArms(canvas, cntx, randomAngle, "black", 4);
-    console.log(randomAngle);
 }
 
+function load()
+{
+    drawAll();
+    colorPicker = document.getElementById("bg")
+    colorPicker.value = getComputedStyle(document.documentElement).getPropertyValue('--background'); 
+    colorPicker.addEventListener("input", changeBackground, false);
+
+}
+
+function changeBackground(event)
+{
+    document.documentElement.style.setProperty('--background', event.target.value);
+}
 function checkGuess()
 {
     guess = parseInt(document.getElementById("guess").value);
@@ -105,15 +117,29 @@ function checkGuess()
             distance.innerHTML = "Getting close";
         }
         
-        if(guesses == 4 || guess == randomAngle)
+        if(guesses == 5 || guess == randomAngle)
         {
             document.getElementById("guess").disabled = true;
             document.getElementById("guessBtn").disabled = true;
             if(guess != randomAngle)
+            {
                 alert("YOU LOST\nAnswer was " + randomAngle)
+                document.getElementById("wins").innerHTML = 0;
+                document.getElementById("tries").innerHTML = (0).toFixed(1);
+                
+            }
+            else
+            {
+                var record = parseInt(document.getElementById("wins").innerHTML);
+                record += 1;
+                document.getElementById("wins").innerHTML = record;
+                tries += guesses;
+                document.getElementById("tries").innerHTML =  (tries / record).toFixed(1);
+            }
+
             document.getElementById("playAgain").hidden = false;
         }
-
+        document.getElementById("guess").value = "";
     }    
 }
 
@@ -129,3 +155,4 @@ function playAgain()
 }
 
 var guesses = 0;
+var tries = 0;

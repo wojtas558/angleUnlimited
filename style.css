@@ -1,13 +1,30 @@
 :root{
-    --background: rgb(127, 146, 161);
-    --backgroundSecond: rgb(44, 41, 41);
+    --background:#7f92a1;
+    --backgroundSecond:#3f3f3f;
 }
+
+
+@font-face {
+    font-family: 'monocraft';
+    src: url('fonts/monocraft-webfont.woff2') format('woff2'),
+         url('fonts/monocraft-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+
 body{
     min-height: 100vh;
     padding: 0px;
@@ -21,6 +38,8 @@ body{
     display: flex;
     justify-content: left;
     align-items: center;  
+    flex-direction: row;
+    gap: 5vh;
 }
 .body{
     width: 100%;
@@ -55,7 +74,9 @@ input{
     height: 3vh;
     float: left;
     background-color: var(--backgroundSecond);
-    text-align: right;
+    display: flex;
+    justify-content: right;
+    align-items:center;  
 }
 #drawing{
     background-color: rgb(247, 225, 194);
@@ -67,18 +88,17 @@ input{
     stroke: var(--backgroundSecond);
 }
 .title{
-    position: absolute;
-    top: 10vh;
+    margin-top: 0vh;
     font-family: "monocraft";
     color: whitesmoke;
 }
 h5{
     font-family: "monocraft";
-    margin: 0.9vh;
+    margin-right: 1vh;
     padding: 0px; 
     color: rgb(247, 225, 194);
 }
-table{
+#results{
     font-family: "monocraft";
     color: rgb(255, 223, 179);
     font-size: 1.5rem;
@@ -115,14 +135,37 @@ table{
     display: none;
     position: absolute;    
     font-family: "monocraft";
-
+    justify-content: right;
+    align-items:center;  
     z-index: 1;
-    min-width: 22vh;
+    min-width: 23vh;
     background-color: rgb(241, 209, 171);
     border: 4px solid rgb(151, 132, 108);
     border-radius: 1vh;
-    padding: 0.5vh;
+    padding: 0vh;
 }
 .dropMenu:hover .colorPickers{
-    display: block;
+    display: flex;
+}
+.records{
+    border-collapse: separate;
+    border-spacing: 1.5vh 0.25vh;
+}
+.records > tbody > tr > th{
+    font-family: "monocraft";
+    font-size: 0.8rem;
+}
+.records > tbody > tr > td{
+    font-family: "monocraft";
+    font-size: 1rem;
+    text-align: center;
+    color: grey;
+}
+#bg{
+    border-radius: 2vh;
+    background-color: var(--background);
+    border: none;
+}
+#bgLabel{
+    margin-left: 1vh;
 }
