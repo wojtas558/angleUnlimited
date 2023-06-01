@@ -10,9 +10,9 @@
 </head>
 <body onload="load()">
     <div class="menu">  
-        <div class="dropMenu">
+        <div class="colorPickers">
             <img class="images" src="images/colorPicker.png" alt="color picker">
-            <div class="colorPickers">
+            <div class="table dropMenu">
                 <table>
                     <tr>
                         <td><label for="bg" id="bgLabel">Background: </label></td>
@@ -23,7 +23,7 @@
                         <td><input type="color" name="elements" id="elements"></td>
                     </tr>
                 </table>
-            </div>
+            </div>            
         </div>
         <table class="records">
             <tr>
@@ -34,17 +34,35 @@
                 <td id="wins">0</td>
                 <td id="tries">0.0</td>
             </tr>
-        </table>        
+        </table>    
+        <div class="help">
+            <img class="images"  src="images/help.png" alt="help">
+            <div class="table" id="help">
+                <table >                
+                    <tr>
+                        <td>HIT</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Very close</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Close</td>
+                        <td>15</td>
+                    </tr>
+                </table>
+            </div>
+        </div>    
     </div>
-    <div class="body">
+    <div class="main">        
         <div class="title">
             <h1>
                 Angle Unlimited
             </h1>
         </div>
         <div class="angle">
-            <canvas id="drawing">                
-            </circle>
+            <canvas id="drawing"></canvas>
         </div>
         <div class="guessing">
             <form id="guessForm" onsubmit="checkGuess(); return false;">
@@ -53,12 +71,18 @@
             </form>
             <table id="results">
             </table>
-            </div>            
-            <input type="button" id="playAgain" class="button" hidden="true" onclick="playAgain()" value="Play again">
-        </div>
-        <div class="foot">
-            <h5>Wojciech Michaluszko</h5>
-        </div>
+        </div>            
+        <input type="button" id="playAgain" class="button" hidden="true" onclick="playAgain()" value="Play again">
+    </div>    
+    <div class="divider">
+        <div>Other games</div>
+    </div>
+    <div class="sub">   
+        <a href="angle.html">angle?</a>
+    </div>
+    <div class="foot">
+        <h5>Wojciech Michaluszko</h5>
+    </div>
     </body>
 <script src="code.js"></script>
 </html>

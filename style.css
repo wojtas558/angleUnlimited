@@ -27,24 +27,23 @@ input[type="color"]::-webkit-color-swatch {
 
 
 body{
-    min-height: 100vh;
+    min-height: 100svh;
     padding: 0px;
     margin: 0px;
     background-color: slategray;
 }
 .menu{
     width: 100%;
-    height: 7vh;
+    height: 4.5rem;
     background-color: var(--backgroundSecond);
     display: flex;
     justify-content: left;
     align-items: center;  
     flex-direction: row;
-    gap: 5vh;
 }
-.body{
+.main{
     width: 100%;
-    height: 90vh;
+    height: 90svh;
     float: left;
     display: flex;
     justify-content: center;
@@ -59,44 +58,48 @@ body{
     flex-direction: column;
 }
 input{
-    margin: 1.2vh;
+    margin: 1.2svh;
 }
 #guess{
-    border-radius: 1vh;
+    border-radius: 1svh;
     text-align: center;
-    height: 3vh;
-    width: 9vh;
+    height: 3svh;
+    width: 9svh;
     font-size: 1.2rem;
     font-family: "monocraft";        
     border: 3px solid black;
-    background-color: var(--itemBackground);
+    background-color: var(--itemBackground);    
+    outline: none;
 }
 .foot{
     width: 100%;
-    height: 3vh;
+    height: 3svh;
     float: left;
     background-color: var(--backgroundSecond);
     display: flex;
     justify-content: right;
     align-items:center;  
+    position: fixed;
+    bottom: 0;
 }
 #drawing{
     background-color: var(--itemBackground);
     border-radius: 50%;
-    border: 0.75vh solid black;
+    border: 0.75svh solid black;
+    margin: 2.5svh;
 }
 #center{
     fill: var(--background);
     stroke: var(--backgroundSecond);
 }
 .title{
-    margin-top: 0vh;
+    margin-top: 0svh;
     font-family: "monocraft";
-    color: var(--itemBackground);
+    color: var(--backgroundSecond);
 }
 h5{
     font-family: "monocraft";
-    margin-right: 1vh;
+    margin-right: 1svh;
     padding: 0px; 
     color: var(--itemBackground);
 }
@@ -105,54 +108,36 @@ h5{
     color: var(--itemBackground);
     font-size: 1.5rem;
     border-collapse: separate;
-    border-spacing: 1.25vh 0px;
+    border-spacing: 1.25svh 0px;
 }
 .images{
-    width: 4.3vh;
-    height: 4.3vh;
+    width: 4.3svh;
+    height: 4.3svh;
 }
 .button{
-    border-radius: 1vh;
+    border-radius: 1svh;
     width: auto;
-    height: 4vh;
+    height: 4svh;
     font-family: "monocraft";
     font-size: 1rem;
     background-color: var(--itemBackground);
     border: 3px solid black;
 }
 .button:hover{
-    filter: brightness(80%);
+    filter: brightness(80%);    
+    border-radius: 2svh;   
 }
-#playAgain:hover{
-    border-radius: 2vh;    
-}
-
-.dropMenu{    
-    margin-left: 2vh;
+.colorPickers{    
     position: relative;    
     display: inline-block;
 }
-.colorPickers{
-    display: none;
-    position: absolute;    
-    font-family: "monocraft";
-    justify-content: right;
-    align-items:center;  
-    z-index: 1;
-    min-width: 21vh;
-    background-color: var(--backgroundSecond);
-    border: 4px solid rgb(0, 0, 0);
-    border-radius: 3vh;
-    border-top-left-radius: 0%;
-    padding: 0vh;
-}
-.dropMenu:hover .colorPickers{
+.colorPickers:hover .dropMenu{
     display: flex;
     flex-wrap: wrap;
 }
 .records{
     border-collapse: separate;
-    border-spacing: 1.5vh 0.25vh;
+    border-spacing: 5svh 0.5svh;
 }
 .records > tbody > tr > th{
     font-family: "monocraft";
@@ -170,11 +155,78 @@ h5{
 #elements{    
     background-color: var(--itemBackground);
 }
-.colorPickers > table> tbody > tr > td > label{
-    margin-left: 1vh;
+.dropMenu > table > tbody > tr > td > label{
+    margin-left: 1svh;
 }
 
-.colorPickers > table > tbody > tr > td > input{
+.dropMenu > table > tbody > tr > td > input{
     border: 2px solid black;
-    border-radius: 1.3vh;
+    border-radius: 1.3svh;
+}
+.menu div:last-child{
+    margin-left: auto;
+    margin-right: 2svh;
+}
+.menu div:first-child{
+    margin-right: auto;
+    margin-left: 2svh;
+}
+
+#help{/*just table */
+    display: none;
+
+}
+
+.table{
+    display: none;
+    position: absolute;    
+    font-family: "monocraft";
+    justify-content: center;
+    border-radius: 3svh;
+    align-items:center;      
+    z-index: 1;
+    min-width: 20svh;
+    background-color: var(--backgroundSecond);
+    border: 4px solid rgb(0, 0, 0);
+    padding: 0svh;    
+    border-collapse: separate;
+    border-spacing: 5svh 0.5svh;
+}
+
+#help{
+    right: 0;    
+    min-width: 18svh;    
+    border-top-right-radius: 0%;
+}
+
+.dropMenu{    
+    border-top-left-radius: 0%;
+}
+
+.help:hover #help{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divider{     
+    width: 100%;
+    height: auto;
+    background-color: var(--backgroundSecond);
+    text-align: center;
+    font-size: 5.5svh;
+    letter-spacing: 1svh;
+    font-family: "monocraft";
+    color: var(--background);
+    float: left;
+    padding: 1rem 0;
+}
+
+.sub{
+    width: 100%;
+    height: 20svh;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    background-color: var(--background);
 }
