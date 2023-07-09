@@ -103,13 +103,13 @@ function checkGuess()
         guessAngle.innerHTML = guess + "&deg;";
 
         if(guess < randomAngle){
-            direction.innerHTML = "<img class='images'src=images/up.png>";
+            direction.innerHTML = "<img class='images'src=angleImages/up.png>";
         }
         else if(guess > randomAngle){
-            direction.innerHTML = "<img class='images'src=images/down.png>";
+            direction.innerHTML = "<img class='images'src=angleImages/down.png>";
         }
         else{
-            direction.innerHTML = "<img class='images'src=images/hit.png>";
+            direction.innerHTML = "<img class='images'src=angleImages/hit.png>";
         }
 
         if(Math.abs(guess - randomAngle) == 0){

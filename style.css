@@ -173,8 +173,10 @@ h5{
 }
 
 #help{/*just table */
-    display: none;
-
+    display: none;    
+    right: 0;    
+    min-width: 18svh;    
+    border-top-right-radius: 0%;
 }
 
 .table{
@@ -191,12 +193,6 @@ h5{
     padding: 0svh;    
     border-collapse: separate;
     border-spacing: 5svh 0.5svh;
-}
-
-#help{
-    right: 0;    
-    min-width: 18svh;    
-    border-top-right-radius: 0%;
 }
 
 .dropMenu{    
